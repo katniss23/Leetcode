@@ -28,3 +28,22 @@ class Solution {
         return max;
     }
 }
+
+Return the max SubArray also along with the sum
+public int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE,sum = 0,start=0,endIndex=0,startIndex=0;
+        for(int i =0; i<nums.length;i++){
+            sum = sum +nums[i];
+            if(sum==0)
+                start=i;
+            if(max < sum){
+                max =  sum;
+                startIndex=start;
+                endIndex = i;
+            }
+            if(sum < 0)
+                sum = 0;
+        }
+        System.out.println("("+nums[startIndex]+", "+nums[endIndex]+")");
+        return max;
+    }
