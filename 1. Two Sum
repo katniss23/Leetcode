@@ -1,5 +1,5 @@
 https://leetcode.com/problems/two-sum/submissions/1208762748/
-
+O(NlognN)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
      Map<Integer,Integer> map = new HashMap<>();
