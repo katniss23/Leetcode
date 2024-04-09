@@ -1,0 +1,19 @@
+#https://www.naukri.com/code360/problems/superior-elements_6783446?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTabValue=PROBLEM
+import java.util.*;
+public class Solution {
+    public static List< Integer > superiorElements(int []a) {
+        // Write your code here.
+        int n = a.length;
+        int  max = a[n-1];
+        ArrayList<Integer> leader = new ArrayList<>() ;
+        
+        leader.add(max);
+        for(int i= n-2;i>=0;i--){
+            if(max<a[i]){
+                max=a[i];
+                leader.add(a[i]);
+            }
+        }
+        return leader;
+    }
+}
