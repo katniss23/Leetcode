@@ -1,0 +1,26 @@
+//https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_5713505?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTabValue=SUBMISSION
+import java.util.* ;
+import java.io.*; 
+import java.lang.Math;
+public class Solution {
+	public static int getLongestSubarray(int []nums, int k) {
+		// Write your code here.
+		int maxLength =0,sum =0,rem =0;
+		Map<Integer, Integer> preSumMap = new HashMap<>();
+		for(int i=0;i<nums.length;i++){
+			sum += nums[i];
+			if(sum == k){
+				maxLength = Math.max(maxLength,i+1);
+			}
+			rem = sum - k;
+			if(preSumMap.containsKey(rem)){
+				int length = i - preSumMap.get(rem);
+				maxLength = Math.max(length, maxLength);
+			}
+			if(!preSumMap.containsKey(sum)){
+				preSumMap.put(sum, i);
+			}
+		}
+		return maxLength;
+	}
+}
