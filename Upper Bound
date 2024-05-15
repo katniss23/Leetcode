@@ -6,10 +6,10 @@ public static UpperBound(long arr[], int n, long x){
     mid = (u+l)/2;
     if(arr[mid]>x){
       ans = mid;
-      h=mid+1;
+      h=mid-1;
     }
     else{
-      l=mid-1;
+      l=mid+1;
     }
 return ans;
 }
