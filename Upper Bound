@@ -1,0 +1,16 @@
+//https://takeuforward.org/arrays/implement-upper-bound/
+
+public static UpperBound(long arr[], int n, long x){
+  int ans=-1,u=n-1,l=0,mid=0;
+  while(l<=u){
+    mid = (u+l)/2;
+    if(arr[mid]>x){
+      ans = mid;
+      h=mid+1;
+    }
+    else{
+      l=mid-1;
+    }
+return ans;
+}
+}
