@@ -5,12 +5,9 @@ class Solution {
         if (firstOccurrence == n || nums[firstOccurrence] != target) {
             return new int[]{-1, -1};
         }
-        int lastOccurrence = UpperBound(nums, target, n);
-        if (lastOccurrence > 0 && nums[lastOccurrence - 1] == target) {
-            return new int[]{firstOccurrence, lastOccurrence - 1};
-        } else {
-            return new int[]{firstOccurrence, firstOccurrence};
-        }
+        int lastOccurrence = UpperBound(nums, target, n)-1;
+
+            return new int[]{firstOccurrence, lastOccurrence};
     }
 
     int LowerBound(int[] a, int target, int n) {
