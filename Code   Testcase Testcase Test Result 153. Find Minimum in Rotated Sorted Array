@@ -1,0 +1,21 @@
+class Solution {
+    public int findMin(int[] nums) {
+        int l =0,u = nums.length-1,m,ans= Integer.MAX_VALUE;
+        while(l<=u){
+            m=(l+u)/2;
+            if(nums[l]<=nums[u]){
+                ans = Math.min(ans,nums[l]);
+                break;
+            }
+            else if(nums[m]>=nums[l]){
+                ans = Math.min(ans,nums[l]);
+                l = m+1;
+            }
+            else{
+                ans =  Math.min(ans,nums[m]);
+                u=m-1;
+            }
+        }
+        return ans;
+    }
+}
