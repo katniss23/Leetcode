@@ -38,9 +38,10 @@ class Solution {
     }
 }
 
-//TC - O(n), SC-O(1)
 
-//Better solution
+
+//Optimal solution using tortoise and hare algorithm
+//TC - O(n), SC-O(1)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
