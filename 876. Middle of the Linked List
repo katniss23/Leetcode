@@ -1,0 +1,66 @@
+//https://leetcode.com/problems/middle-of-the-linked-list/description/?source=submission-ac
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        if(head == null || head.next == null)return head;
+
+        ListNode temp =  head;
+        int n =0;
+        while(temp!= null){
+            n++;
+            temp = temp.next;
+        }
+        temp = head;
+        int m = 0,i =0;
+        if(n%2==0){
+            m=n/2;
+        }
+        else{
+            m =(n-1)/2;
+            
+        }
+        while(i<m){
+            i++;
+            temp = temp.next;
+        }
+        return temp;
+
+    }
+}
+
+//TC - O(n), SC-O(1)
+
+//Better solution
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        if(head == null || head.next == null)return head;
+
+        ListNode temp =  head,mid = head;
+        
+        while(temp!= null && temp.next != null){
+            mid = mid.next;
+            temp = temp.next.next;
+        }        
+        return mid;
+    }
+}
