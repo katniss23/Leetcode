@@ -1,0 +1,31 @@
+//https://leetcode.com/problems/remove-linked-list-elements/description/ O(n);TC =O(n)
+///**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        if(head== null){
+            return null;
+        }
+        while(head != null && head.val == val){
+            head = head.next;
+        }
+      ListNode front = head;
+      while(front != null && front.next != null){
+        if(front.next.val == val){
+            front.next=front.next.next;
+        }
+        else{
+            front = front.next;
+        }
+      }
+      return head;
+    }
+}
