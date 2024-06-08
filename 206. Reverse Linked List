@@ -1,0 +1,48 @@
+//https://leetcode.com/problems/reverse-linked-list/
+//TC-O(n)
+//SC - O(1)
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev =null,temp=head,rev = head;
+        while(temp!= null){
+            rev = temp;
+            temp = temp.next;
+            rev.next = prev;
+            prev = rev;
+        }
+        return rev;
+    }
+}
+//Using recursion TC = O(n), SC = O(n) as recursive stack space is used
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+       if(head == null || head.next == null){
+        return head;
+       }
+       ListNode newHead = reverseList(head.next);
+       ListNode front = head.next;
+       front.next = head;
+       head.next = null;
+       return newHead;
+    }
+}
