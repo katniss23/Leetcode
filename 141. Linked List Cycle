@@ -1,0 +1,27 @@
+//https://leetcode.com/problems/linked-list-cycle/
+//SC-O(1), TC - O(n)
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode front =head,slow=head;
+        while(front != null && front.next != null){
+            front = front.next.next;
+            slow = slow.next;
+            if(front == slow)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
